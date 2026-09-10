@@ -12,8 +12,18 @@ import {
   AppointmentStatus,
 } from "@/types/appointment";
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const DATA_FILE = path.join(DATA_DIR, "appointments.json");
+function getStoragePaths() {
+  const dataDir = process.env.VERCEL
+    ? path.join("/tmp", "appointment-board-data")
+    : path.join(process.cwd(), "data");
+
+  return {
+    dataDir,
+    dataFile: path.join(dataDir, "appointments.json"),
+  };
+}
+
+const { dataDir: DATA_DIR, dataFile: DATA_FILE } = getStoragePaths();
 
 function getTodayDate(): string {
   const now = new Date();
