@@ -35,6 +35,10 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Live Demo
+
+https://appointment-board-five.vercel.app
+
 ### Production Build
 
 ```bash
@@ -59,7 +63,8 @@ npm start
 - Only non-cancelled appointments block overlapping slots
 - Completed appointments still occupy their original time slot
 - Cancelled appointments cannot be edited
-- Data persists in `data/appointments.json` and survives refreshes
+- Data persists in `data/appointments.json` locally and survives refreshes
+- On Vercel, data uses `/tmp` storage (resets on cold starts; suitable for demo)
 - Sample appointments are auto-seeded on first run
 
 ## Project Structure
