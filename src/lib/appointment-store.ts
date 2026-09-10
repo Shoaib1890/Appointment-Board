@@ -12,11 +12,7 @@ import {
   AppointmentStatus,
 } from "@/types/appointment";
 
-const DATA_DIR =
-  process.env.DATA_DIR ||
-  (process.env.VERCEL
-    ? path.join("/tmp", "appointment-board-data")
-    : path.join(process.cwd(), "data"));
+const DATA_DIR = path.join(process.cwd(), "data");
 const DATA_FILE = path.join(DATA_DIR, "appointments.json");
 
 function getTodayDate(): string {
